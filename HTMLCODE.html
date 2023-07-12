@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Quote Machine</title>
+  </head>
+  <body>
+    <div id="quote-box">
+      <p id="text"></p>
+      <p id="author"></p>
+      <button id="new-quote">New Quote</button>
+      <a id="tweet-quote" href="https://twitter.com/intent/tweet" target="_blank">Tweet</a>
+    </div>
+
+    <script>
+      function getQuote() {
+        const quotes = [
+          {
+            text: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+            author: "Nelson Mandela"
+          },
+          {
+            text: "The way to get started is to quit talking and begin doing.",
+            author: "Walt Disney"
+          },
+          {
+            text: "Your time is limited, don't waste it living someone else's life.",
+            author: "Steve Jobs"
+          }
+        ];
+
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        document.getElementById("text").textContent = randomQuote.text;
+        document.getElementById("author").textContent = randomQuote.author;
+      }
+
+      function newQuote() {
+        getQuote();
+      }
+
+      function tweetQuote() {
+      }
+
+      document.getElementById("new-quote").addEventListener("click", newQuote);
+      document.getElementById("tweet-quote").addEventListener("click", tweetQuote);
+
+      getQuote();
+    </script>
+  </body>
+</html>
